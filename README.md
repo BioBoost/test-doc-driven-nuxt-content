@@ -40,3 +40,13 @@ npm run preview
 ```
 
 Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment) for more information.
+
+## Netlify deployment
+
+Dont forget to enable:
+
+* Identify
+* External Providers: github
+* Github gateway
+
+Can all be found under identity settings
