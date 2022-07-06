@@ -1,7 +1,26 @@
+<script setup>
+  const { data } = await useAsyncData('home', () => queryContent('/blogs/').only(['_path', 'title', 'description']).find())
+</script>
+
 <template>
   <main>
-    <section class="self-center flex flex-col flex-1 items-center justify-center">
-      <h1 class="title text-center">This will be the overview of the blogs !!!!!!!!!!!!!!!!!!!!!!!!!</h1>
+    <h1>pages/blogs/index.vue</h1>
+    <pre>
+      {{ data }}
+    </pre>
+    <section v-if="data" class="w-full max-w-5xl mx-auto">
+      <blogs post-type="blog" :amount="10" />
     </section>
   </main>
 </template>
+
+<script>
+import Blogs from '@/components/posts/blogs.vue';
+
+export default {
+  components: { Blogs },
+  // async setup() {
+  //   const { data } = await useAsyncData('home', () => queryContent('/blogs/').only(['_path', 'title', 'description']).find())
+  // },
+}
+</script>
